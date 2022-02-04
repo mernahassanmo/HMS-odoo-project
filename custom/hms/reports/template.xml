@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <template id="hms_patient_pdf_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+
+                        <div class="page">
+                            <h1 class="text-danger text-center ">Patient Status Report</h1>
+<!--                            <span t-field="o.image" t-options='{"widget": "image"}'/>-->
+                            <div class="row">
+                                <div class="col-5">
+                                    <h3>
+                                        <span class="font-weight-bold">Name:</span>
+                                        <span t-field="o.First_name"/>
+                                    </h3>
+                                    <h3>
+                                        <span class="font-weight-bold">Age:</span>
+                                        <span t-field="o.age"/>
+                                    </h3>
+                                    <h3>
+                                        <span class="font-weight-bold">Department:</span>
+                                        <span t-field="o.department_name_id"/>
+                                    </h3>
+                                    <h3>
+                                        <span class="font-weight-bold">Doctors:</span>
+                                        <span t-field="o.doctor_name_id"/>
+                                    </h3>
+                                </div>
+                                <div class="col-5">
+                                    <h3>
+                                        <span class="font-weight-bold">Birth date:</span>
+                                        <span t-field="o.birth_date"/>
+                                    </h3>
+                                    <h3>
+                                        <span class="font-weight-bold">PCR:</span>
+                                        <span t-field="o.pcr"/>
+                                    </h3>
+                                    <h3>
+                                        <span class="font-weight-bold">Blood Type:</span>
+                                        <span t-field="o.blood_type"/>
+                                    </h3>
+                                    <h3>
+                                        <span class="font-weight-bold">Email:</span>
+                                        <span t-field="o.Email"/>
+                                    </h3>
+
+                                </div>
+                            </div>
+
+
+                            <h2 class="text-danger text-center my-5">Log History</h2>
+                            <table class="table table-primary text-center">
+                                <tr>
+                                    <th class="font-weight-bold">USER</th>
+                                    <th class="font-weight-bold">DATE</th>
+                                    <th class="font-weight-bold">info</th>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span t-field="o.create_uid"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.create_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.state"/>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

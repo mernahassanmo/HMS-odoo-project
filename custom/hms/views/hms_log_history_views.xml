@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <!-- Tree View or List View -->
+        <record id="log_history_tree_view" model="ir.ui.view">
+            <field name="name">log history tree view</field>
+            <field name="model">hms.log.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="created_by"/>
+                    <field name="Date"/>
+
+                </tree>
+            </field>
+        </record>
+        <!-- Form View -->
+
+        <record id="log_history_form_view" model="ir.ui.view">
+            <field name="name">log history from view</field>
+            <field name="model">hms.log.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <center><h1>Log History </h1></center>
+                        <group>
+                            <field name="created_by" />
+                            <field name="Date" />
+                            <field name="Description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="log_history_action" model="ir.actions.act_window">
+            <field name="name">log history</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.log.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="Hospital_root_menu" name="Hospital" sequence="1"/>
+        <menuitem id="log_history_sub_menu" name="log_history" action="log_history_action" parent="Hospital_root_menu"/>
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <!-- Tree View or List View -->
+        <record id="department_tree_view" model="ir.ui.view">
+            <field name="name">department tree view</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Name"/>
+                    <field name="is_opened"/>
+                    <field name="Capacity"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Form View -->
+
+        <record id="department_form_view" model="ir.ui.view">
+            <field name="name">department from view</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+
+                <form>
+
+                    <sheet>
+                        <center>
+                            <h1>Department Info.</h1>
+                        </center>
+                        <group>
+                            <group>
+                                <field name="Name"/>
+                                <field name="is_opened"/>
+                                <field name="Capacity"/>
+
+                            </group>
+                            <notebook>
+                                <page string="Patients">
+                                    <field name="patient_ids"/>
+                                </page>
+                            </notebook>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="department_search_view" model="ir.ui.view">
+            <field name="name">department.search.view</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="Name"/>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="department_action" model="ir.actions.act_window">
+            <field name="name">department</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="Hospital_root_menu" name="Hospital" sequence="1"/>
+        <menuitem id="department_sub_menu" name="departments" action="department_action" parent="Hospital_root_menu"/>
+    </data>
+</odoo>
